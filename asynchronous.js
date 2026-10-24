@@ -4,8 +4,8 @@ const checkInventory = () => {
     const promise = new Promise((resolve,reject) => {
         setTimeout(()=>{
             console.log('Check Inventory......');
-            reject(new Error('failed to check inventory!'))
-        
+            let inStock = 10;
+            resolve(inStock)
         },2000)
     })
     return promise;
@@ -48,17 +48,26 @@ const sendInvoice = () => {
 // sendInvoice();
 
 
-const main = () => {
+const main = async () => {
 
+    setTimeout(()=>{
+        console.log('Creating an Order......');
+        
+    },3000)
 
-    checkInventory()
-        .then(createOrder)
-        .then(chargePayment)
-        .then(sendInvoice)
-        .catch(err => {
-            console.log('err:',err);
+    let inStock = await checkInventory();
+    await createOrder();
+    await chargePayment();
+    await sendInvoice();
+
+    // checkInventory()
+    //     .then(createOrder)
+    //     .then(chargePayment)
+    //     .then(sendInvoice)
+    //     .catch(err => {
+    //         console.log('err:',err);
             
-        })
+    //     })
 
     // checkInventory(()=>{
     //     createOrder((err)=>{
