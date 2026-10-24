@@ -1,34 +1,45 @@
 
 
-const checkInventory = (callback) => {
-    setTimeout(()=>{
-        console.log('Check Inventory......');
-        callback()
-    },2000)
+const checkInventory = () => {
+    const promise = new Promise((resolve,reject) => {
+        setTimeout(()=>{
+            console.log('Check Inventory......');
+            reject(new Error('failed to check inventory!'))
+        
+        },2000)
+    })
+    return promise;
 }
 
 const createOrder = (callback) => {
-    setTimeout(()=>{
-        console.log('Create Order.....');
-        const error = new Error('order create failed.')
-        callback(error)
+    const promise = new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+            console.log('Create Order.....');
+            resolve()
     },1000)
+    })
+    return promise;
 }
 
 const chargePayment = (callback) =>{
-    setTimeout(()=>{
-        console.log('make a Payment.....');
-        const error = null
-        let chargeAmout = 100
-        callback(error,chargeAmout)
+    const promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log('make a Payment.....');
+            let chargeAmout = 100
+            resolve()
     },1000)
+    })
+    return promise;
 }
 
-const sendInvoice = (callback) => {
-    setTimeout(()=>{
-        console.log('send Invoice.......')
-        callback()
+const sendInvoice = () => {
+    const promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log('send Invoice.......')
+            resolve()
     },1000)
+    })
+    return promise;
 }
 
 // checkInventory();
@@ -38,24 +49,35 @@ const sendInvoice = (callback) => {
 
 
 const main = () => {
-    checkInventory(()=>{
-        createOrder((err)=>{
-            if(err){
-                console.log(err);
-            }
-            chargePayment((err,chargeAmout)=>{
-                if(err){
-                    console.log('handling error');
-                    return;
-                }
-                console.log('charge:',chargeAmout);
+
+
+    checkInventory()
+        .then(createOrder)
+        .then(chargePayment)
+        .then(sendInvoice)
+        .catch(err => {
+            console.log('err:',err);
             
-                sendInvoice(()=>{
-                    console.log('All done!');
-                })
-            })
         })
-    })
+
+    // checkInventory(()=>{
+    //     createOrder((err)=>{
+    //         if(err){
+    //             console.log(err);
+    //         }
+    //         chargePayment((err,chargeAmout)=>{
+    //             if(err){
+    //                 console.log('handling error');
+    //                 return;
+    //             }
+    //             console.log('charge:',chargeAmout);
+            
+    //             sendInvoice(()=>{
+    //                 console.log('All done!');
+    //             })
+    //         })
+    //     })
+    // })
 }
 
 main()
