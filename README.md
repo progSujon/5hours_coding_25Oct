@@ -26,9 +26,9 @@ A task starts and runs in the background. The program does not wait for it to fi
 Promise is an object that represents the result of an asynchronous operation. The result may be available now, later, or the operation may fail.
 
 The Three Promise States
- - pending :The initial state. The asynchronous operation is still working, and the result is not yet available.
+ - Pending :The initial state. The asynchronous operation is still working, and the result is not yet available.
  - Fulfilled : The operation completed successfully, and the promise now holds the resulting value.
- - reject :  The operation failed, and the promise holds the reason or error for the failure.
+ - Reject :  The operation failed, and the promise holds the reason or error for the failure.
 
 
 Promise receive have two peramiter
@@ -42,7 +42,7 @@ const promise = new Promise((resolve,reject)=>{
 ```
 When use Promise
 
-- async/await
+**Async/Await**
 
 Async / Await is the cleanest modern way to handle tasks that take time in JavaScript (like downloading data or waiting for a timer). It allows you to write asynchronous code that looks and reads just like normal, step-by-step code.
 To understand it easily, think of the word await as a "pause button" that waits for a task to finish before moving to the next line.
