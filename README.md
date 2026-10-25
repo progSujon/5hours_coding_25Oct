@@ -1,33 +1,38 @@
-# 5 Hours Coding Challange
+# Asynchronous JavaScript
 
-Topic - Asynchronous JavaScript
-I follow - 
-- Coder's Gyan youtube channel (Hindi)
+I follow - [Master Asynchronous JavaScript | Coder's Gyan youtube channel (Hindi)](https://youtu.be/2pHQdjgSVUk?si=ySYG2sjQXPtzapXt)
 
 JavaScript is a single threading programming language means this language use a single thread in processor. if any calculation or came to response many time to block thread then other program wait to finish before task. Is a boring?
 So javascript do waiting lengthy processing program. after finish all task then execute lengthy processing program asynchronously
 
-In javascript all ways try to free main thread for handle new request 
+<mark>In javascript all ways try to free main thread for handle new request </mark>
 
+- **Synchronous Execution**
+code execute Sequential one by one. If a task takes a long time,the entire program or thread freezes ("blocks") until that task is done.
 
-What is Asynchronous JavaScript
+- **Asynchronous Execution**
+A task starts and runs in the background. The program does not wait for it to finish; it moves straight on to the next line of code.When the background task finally finishes, it sends a signal, callback, promise, or event to let the program handle the result
+
+**Asynchronous JavaScript**
 - Asynchronous JavaScript allows JavaScript to do other work while waiting for a task to finish.
 
-- Callback : A callback is simply a function passed as an argument into another function, which is then executed (called back) after some action is finished.
+- **Callback** : A callback is simply a function passed as an argument into another function, which is then executed (called back) after some action is finished.
 
-- Callback hell : Callback Hell happens when you nest too many functions inside each other in JavaScript. It makes your code grow sideways like a triangle. This makes the code very difficult to read, understand, and fix.
+- **Callback hell** : Callback Hell happens when you nest too many functions inside each other in JavaScript. It makes your code grow sideways like a triangle.<u> This makes the code very difficult to read, understand, and fix.</u>
 
 - error handeling
 
-- Promise : 
+**Promise**
+Promise is an object that represents the result of an asynchronous operation. The result may be available now, later, or the operation may fail.
 
-Promise have 3 stage
-1.resolve
-2.pending
-3.reject
+The Three Promise States
+ - resolve : The operation completed successfully, and the promise now holds the resulting value.
+ - pending :The initial state. The asynchronous operation is still working, and the result is not yet available.
+ - reject :  The operation failed, and the promise holds the reason or error for the failure.
 
-promise receive have two peramiter
-- resolve another reject
+
+Promise receive have two peramiter
+- one resolve another reject
 
 create promise
 ```
