@@ -26,8 +26,8 @@ A task starts and runs in the background. The program does not wait for it to fi
 Promise is an object that represents the result of an asynchronous operation. The result may be available now, later, or the operation may fail.
 
 The Three Promise States
- - resolve : The operation completed successfully, and the promise now holds the resulting value.
  - pending :The initial state. The asynchronous operation is still working, and the result is not yet available.
+ - Fulfilled : The operation completed successfully, and the promise now holds the resulting value.
  - reject :  The operation failed, and the promise holds the reason or error for the failure.
 
 
